@@ -1,0 +1,41 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import SeletorBusca from '../components/SeletorBusca.jsx';
+import "../styles/global.css";
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Esse medicamento dá no SUS?</title>
+  </head>
+  <body className="bg-slate-50 min-h-screen pt-12 p-4">
+    <main className="max-w-3xl mx-auto">
+      <div className="text-center mb-10">
+        <h1 className="text-3xl font-bold text-slate-800 mb-3">Esse medicamento dá no SUS?</h1>
+        <p className="text-slate-600 text-sm md:text-base">
+          Descubra em segundos se o seu medicamento está disponível pelo Sistema Único de Saúde, em qual programa buscá-lo e quais são as suas chances de acesso.
+        </p>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <h2 className="text-xl font-semibold mb-6 text-slate-800">Sua Consulta</h2>
+        
+        <form onSubmit={(e) => e.preventDefault()}>
+          <SeletorBusca client:load />
+          
+          <div className="mt-8 flex gap-4">
+            <button 
+              type="submit" 
+              className="bg-blue-800 text-white px-6 py-2.5 rounded-lg hover:bg-blue-900 transition flex items-center font-medium"
+            >
+              🔍 Verificar disponibilidade
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html
